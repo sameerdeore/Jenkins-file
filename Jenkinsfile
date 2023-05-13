@@ -36,7 +36,7 @@ pipeline {
 				      }
 			 }
 			 
-	          stage ("on-slave-1") {
+	          stage ("on slave-1") {
 			   agent {
 			     label {
 			 
@@ -55,13 +55,14 @@ pipeline {
 					  
 			}
 				 
-				 stage ("on-slave-2") {
+				 stage ("on slave-2") {
 			 agent {
 			      label {
 			        label "slave-2"
 					customWorkspace "/mnt/game-of-life"
 	             }
 			 }
+			     
 				steps {
 				       sh "sudo cp -r /efs-jenkins/gameoflife.war /mnt/project/"
 				       sh "sudo docker system prune -a --volumes -f"
@@ -72,12 +73,5 @@ pipeline {
 					  
 			        }       
 			}
-			post {
-				 always {
-				       sh "docker-compose down"
-				       sleep 10
-				       sh "docker system prune -a --volumes -f"
-				       }             
-                    }
 			
 	}
