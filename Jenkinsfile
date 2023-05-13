@@ -24,7 +24,7 @@ pipeline {
 		      stage ("checkout SCM") {
 			    
 			    steps {
-				        sh "git https://github.com/chitrangsawant/game-of-life.git"
+				        git "https://github.com/chitrangsawant/game-of-life.git"
 				      }
 			     }
 	 
