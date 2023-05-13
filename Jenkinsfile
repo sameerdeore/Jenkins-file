@@ -32,7 +32,7 @@ pipeline {
 			    
 			    steps {
 				        sh "mvn clean install -DskipTests=true"
-						sh "cp -r /mnt/game-of-life/gameoflife-web/target/gameoflife.war /efs-jenkins/
+						sh "cp -r /mnt/game-of-life/gameoflife-web/target/gameoflife.war /efs-jenkins/"
 				      }
 			 }
 			 
