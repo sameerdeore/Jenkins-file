@@ -24,7 +24,7 @@ pipeline {
 		      stage ("checkout SCM") {
 			    
 			    steps {
-				        sh git "https://github.com/chitrangsawant/game-of-life.git"
+				        sh "git https://github.com/chitrangsawant/game-of-life.git"
 				      }
 			     }
 	 
@@ -64,7 +64,7 @@ pipeline {
 			 }
 				steps {
 				       sh "sudo cp -r /efs-jenkins/gameoflife.war /mnt/project/"
-					   sh "docker system prune -a --volumes -f"
+				       sh "sudo docker system prune -a --volumes -f"
 				       sleep 10
 				       sh "docker-compose up -d --scale tomcat=2"
 				       sh "docker-compose ps"
