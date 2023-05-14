@@ -24,7 +24,7 @@ pipeline {
 		      stage ("checkout SCM") {
 			    
 			    steps {
-				        git "https://github.com/chitrangsawant/game-of-life.git"
+				        git "https://github.com/sameerdeore/game-of-life.git"
 				      }
 			     }
 	 
@@ -32,7 +32,7 @@ pipeline {
 			    
 			    steps {
 				        sh "mvn clean install -DskipTests=true"
-						sh "cp -r /mnt/game-of-life/gameoflife-web/target/gameoflife.war /efs-jenkins/"
+						sh "cp -r /mnt/game-of-life/gameoflife-web/target/gameoflife.war"
 				      }
 			 }
 			 
