@@ -36,42 +36,5 @@ pipeline {
 				      }
 			 }
 			 
-	          stage ("on slave-1") {
-			   agent {
-			     label {
-			 
-			        label "slave-1"
-					customWorkspace "/mnt/game-of-life"
-	            }
-			 }
-			 
-				steps {
-				       sh "sudo cp -r /efs-jenkins/gameoflife.war /mnt/project/"
-				       sh "sudo docker system prune -a --volumes -f"
-				       sleep 10
-				       sh "sudo docker-compose up -d --scale tomcat=2"
-				       sh "sudo docker-compose ps"
-				      }
-					  
-			}
-				 
-				 stage ("on slave-2") {
-			 agent {
-			      label {
-			        label "slave-2"
-					customWorkspace "/mnt/game-of-life"
-	             }
-			 }
-			     
-				steps {
-				       sh "sudo cp -r /efs-jenkins/gameoflife.war /mnt/project/"
-				       sh "sudo docker system prune -a --volumes -f"
-				       sleep 10
-				       sh "docker-compose up -d --scale tomcat=2"
-				       sh "docker-compose ps"
-				      }
-					  
-			        }       
-			}
-			
-	}
+	         
+	 }
